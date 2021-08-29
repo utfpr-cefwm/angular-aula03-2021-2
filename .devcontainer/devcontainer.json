@@ -17,6 +17,7 @@
 		"editorconfig.editorconfig",
 		"mongodb.mongodb-vscode",
 		"ms-vscode.vscode-typescript-tslint-plugin",
+		"nrwl.angular-console",
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
