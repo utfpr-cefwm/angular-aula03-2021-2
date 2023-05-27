@@ -5,6 +5,7 @@ import {
 } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
+import { ListaArtigosComponent } from './components/lista-artigos/lista-artigos.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,17 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'lista-artigos',
+      },
+      {
+        path: 'lista-artigos',
+        component: ListaArtigosComponent,
+      },
+    ],
   },
 ];
 
