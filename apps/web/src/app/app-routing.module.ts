@@ -26,6 +26,12 @@ const routes: Routes = [
         path: 'lista-artigos',
         component: ListaArtigosComponent,
       },
+      {
+        path: 'artigo-edicao',
+        loadChildren: () => import(
+          './modules/artigo-edicao/artigo-edicao.module'
+        ).then(mod => mod.ArtigoEdicaoModule),
+      },
     ],
   },
 ];

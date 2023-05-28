@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
@@ -17,6 +18,7 @@ export class ListaArtigosComponent implements OnInit {
 
   constructor(
     private artigoService: ArtigoService,
+    private router: Router,
   ) {
   }
 
@@ -26,6 +28,9 @@ export class ListaArtigosComponent implements OnInit {
   public editaArtigo(artigo: Artigo, event: Event) {
     event.preventDefault();
     event.stopPropagation();
+    this.router.navigate([
+      '/home/artigo-edicao',
+    ]);
   }
 
 }
