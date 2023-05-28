@@ -1,2 +1,3 @@
-<p>lista-artigos works!</p>
-<router-outlet></router-outlet>
+<div *ngFor="let artigo of (artigos$ | async)">
+  {{ artigo.titulo }}
+</div>

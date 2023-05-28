@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MenubarModule } from 'primeng/menubar';
 import { TabViewModule } from 'primeng/tabview';
@@ -17,6 +18,7 @@ import { ListaArtigosComponent } from './components/lista-artigos/lista-artigos.
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MenubarModule,
     TabViewModule,

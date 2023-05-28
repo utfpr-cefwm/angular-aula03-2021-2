@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Observable } from 'rxjs';
+
+import { Artigo } from '@cefwm-angular/common';
+
+import { ArtigoService } from '../../services/artigo/artigo.service';
+
 @Component({
   selector: 'cefwm-angular-lista-artigos',
   templateUrl: './lista-artigos.component.html',
@@ -7,7 +13,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaArtigosComponent implements OnInit {
 
+  public artigos$: Observable<Artigo[]> = this.artigoService.getAll();
+
   constructor(
+    private artigoService: ArtigoService,
   ) {
   }
 
