@@ -24,6 +24,10 @@ import { ListaArtigosComponent } from './components/lista-artigos/lista-artigos.
     TabViewModule,
   ],
   providers: [
+    {
+      provide: 'API_BASE_URL',
+      useValue: 'http://localhost:4200/api',
+    },
   ],
   bootstrap: [
     AppComponent,
