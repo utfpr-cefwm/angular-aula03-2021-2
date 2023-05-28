@@ -1,3 +1,23 @@
-<div *ngFor="let artigo of (artigos$ | async)">
-  {{ artigo.titulo }}
-</div>
+<a
+  [href]="artigo.url"
+  target="_blank"
+  rel="noreferrer"
+  *ngFor="let artigo of (artigos$ | async)"
+>
+  <p-card
+    header="{{ artigo.titulo }}"
+    [style]="{width: '360px'}"
+    styleClass="p-card-shadow"
+  >
+    <ng-template pTemplate="header">
+      <img alt="{{ artigo.titulo }}" src="{{ artigo.imagem }}">
+    </ng-template>
+    <p>
+      {{ artigo.descricao }}
+    </p>
+    <ng-template pTemplate="footer">
+      <p-button label="Save" icon="pi pi-check"></p-button>
+      <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+    </ng-template>
+  </p-card>
+</a>

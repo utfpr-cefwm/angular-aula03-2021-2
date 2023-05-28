@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MenubarModule } from 'primeng/menubar';
 import { TabViewModule } from 'primeng/tabview';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +24,8 @@ import { ListaArtigosComponent } from './components/lista-artigos/lista-artigos.
     AppRoutingModule,
     MenubarModule,
     TabViewModule,
+    CardModule,
+    ButtonModule,
   ],
   providers: [
     {

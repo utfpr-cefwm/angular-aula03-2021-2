@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1em;
+}
+
+a {
+  flex: 1 0 20em;
+  max-width: 25em;
+}
