@@ -16,8 +16,19 @@
       {{ artigo.descricao }}
     </p>
     <ng-template pTemplate="footer">
-      <p-button label="Save" icon="pi pi-check"></p-button>
-      <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+      <p-button
+        label="Acessar"
+        icon="pi pi-eye"
+      >
+      </p-button>
+      <p-button
+        (click)="editaArtigo(artigo, $event)"
+        label="Editar"
+        icon="pi pi-pencil"
+        styleClass="p-button-secondary"
+        [style]="{'margin-left': '.5em'}"
+      >
+      </p-button>
     </ng-template>
   </p-card>
 </a>

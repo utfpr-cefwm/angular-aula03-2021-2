@@ -23,4 +23,9 @@ export class ListaArtigosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public editaArtigo(artigo: Artigo, event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
 }
