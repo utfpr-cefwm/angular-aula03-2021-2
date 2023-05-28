@@ -21,6 +21,7 @@
     "@angular/router": "^12.1.0",
     "@nrwl/angular": "12.8.0",
     "express": "4.17.1",
+    "mongodb": "^4.16.0",
     "primeicons": "^6.0.1",
     "primeng": "^12.2.3",
     "rxjs": "~6.6.0",
