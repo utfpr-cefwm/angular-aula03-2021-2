@@ -1,4 +1,4 @@
-export interface Artigo {
+export interface IArtigo {
 
   /**
    * Identificador único do artigo.
