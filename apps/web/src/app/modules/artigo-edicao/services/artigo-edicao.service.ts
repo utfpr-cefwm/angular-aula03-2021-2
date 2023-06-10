@@ -19,13 +19,7 @@ export class ArtigoEdicaoService {
 
   public get(id: number): Observable<Artigo> {
     return this.httpClient.get<IArtigo>(`${this.apiBaseUrl}/artigos/${id}`).pipe(
-      map(iArtigo => new Artigo(
-        iArtigo._id,
-        iArtigo.imagem,
-        iArtigo.titulo,
-        iArtigo.descricao,
-        iArtigo.url,
-      )),
+      map(iArtigo => Artigo.fromJson(iArtigo)),
     );
   }
 

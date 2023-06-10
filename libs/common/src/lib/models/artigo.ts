@@ -2,6 +2,16 @@ import { IArtigo } from "../interfaces/artigo";
 
 export class Artigo {
 
+  public static fromJson(iArtigo: IArtigo): Artigo {
+    return new Artigo(
+      iArtigo._id,
+      iArtigo.imagem,
+      iArtigo.titulo,
+      iArtigo.descricao,
+      iArtigo.url,
+    );
+  }
+
   /**
    * @param id Identificador único do artigo.
    * @param imagem URL da imagem que ilustra o artigo.
