@@ -1,3 +1,5 @@
+import { IArtigo } from "../interfaces/artigo";
+
 export class Artigo {
 
   /**
@@ -14,6 +16,16 @@ export class Artigo {
     public descricao: string,
     public url: string,
   ) {
+  }
+
+  public toJson(): IArtigo {
+    return {
+      _id: this.id,
+      titulo: this.titulo,
+      descricao: this.descricao,
+      imagem: this.imagem,
+      url: this.url,
+    };
   }
 
 }

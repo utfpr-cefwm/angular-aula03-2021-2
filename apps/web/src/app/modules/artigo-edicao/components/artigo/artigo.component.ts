@@ -3,7 +3,10 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { takeUntil } from 'rxjs/operators';
@@ -18,10 +21,12 @@ import { ArtigoEdicaoService } from '../../services/artigo-edicao.service';
 })
 export class ArtigoComponent implements OnInit, OnDestroy {
 
-  public titulo: FormControl = new FormControl('');
-  public descricao: FormControl = new FormControl('');
-  public imagem: FormControl = new FormControl('');
-  public url: FormControl = new FormControl('');
+  public formGroup: FormGroup = new FormGroup({
+    titulo: new FormControl(''),
+    descricao: new FormControl(''),
+    imagem: new FormControl(''),
+    url: new FormControl(''),
+  });
 
   public subDesinscricao: Subject<void> = new Subject();
 
@@ -39,10 +44,7 @@ export class ArtigoComponent implements OnInit, OnDestroy {
       this.artigoEdicaoService.get(id).pipe(
         takeUntil(this.subDesinscricao),
       ).subscribe(artigo => {
-        this.titulo.setValue(artigo.titulo);
-        this.descricao.setValue(artigo.descricao);
-        this.imagem.setValue(artigo.imagem);
-        this.url.setValue(artigo.url);
+        this.formGroup.setValue(artigo.toJson());
       });
     });
   }
