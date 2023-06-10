@@ -5,8 +5,7 @@ import { ArtigoComponent } from './components/artigo/artigo.component';
 
 const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
+    path: ':artigoId',
     component: ArtigoComponent,
   },
 ];
