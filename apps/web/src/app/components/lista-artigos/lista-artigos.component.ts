@@ -29,7 +29,7 @@ export class ListaArtigosComponent implements OnInit {
     event.preventDefault();
     event.stopPropagation();
     this.router.navigate([
-      '/home/artigo-edicao',
+      '/home/artigo-edicao/' + artigo.id,
     ]);
   }
 
