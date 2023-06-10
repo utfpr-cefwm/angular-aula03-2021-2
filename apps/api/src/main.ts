@@ -5,6 +5,8 @@
 
 import * as express from 'express';
 
+import { json } from 'body-parser';
+
 import { MongoClient } from 'mongodb';
 
 import { router as artigosRouter } from './app/routes/artigos';
@@ -19,6 +21,8 @@ MongoClient.connect(
 });
 
 const app = express();
+
+app.use(json());
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to api!' });

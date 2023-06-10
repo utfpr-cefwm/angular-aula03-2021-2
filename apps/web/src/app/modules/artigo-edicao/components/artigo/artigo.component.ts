@@ -12,6 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
+import { IArtigo } from '@cefwm-angular/common';
+
 import { ArtigoEdicaoService } from '../../services/artigo-edicao.service';
 
 @Component({
@@ -22,6 +24,7 @@ import { ArtigoEdicaoService } from '../../services/artigo-edicao.service';
 export class ArtigoComponent implements OnInit, OnDestroy {
 
   public formGroup: FormGroup = new FormGroup({
+    _id: new FormControl(''),
     titulo: new FormControl(''),
     descricao: new FormControl(''),
     imagem: new FormControl(''),
@@ -52,6 +55,19 @@ export class ArtigoComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subDesinscricao.next();
     this.subDesinscricao.complete();
+  }
+
+  public salvar(): void {
+    const iArtigo: IArtigo = this.formGroup.value;
+    this.artigoEdicaoService.put(iArtigo).pipe(
+      takeUntil(this.subDesinscricao),
+    ).subscribe(result => {
+      if (result.ok) {
+        console.log('TUDO OK!', result.value);
+      } else {
+        console.error(result.lastErrorObject);
+      }
+    });
   }
 
 }
