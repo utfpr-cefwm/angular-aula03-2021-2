@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'cefwm-angular-artigo',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artigo.component.css'],
 })
 export class ArtigoComponent implements OnInit {
+
+  public titulo: FormControl = new FormControl('');
+  public descricao: FormControl = new FormControl('');
+  public imagem: FormControl = new FormControl('');
+  public url: FormControl = new FormControl('');
 
   constructor() {
   }
