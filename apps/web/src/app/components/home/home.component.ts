@@ -1,10 +1,12 @@
 import {
   Component,
+  OnDestroy,
   OnInit,
 } from '@angular/core';
 import { Event, NavigationEnd, Router } from '@angular/router';
 
 import { MenuItem } from 'primeng/api';
+import { Subscription } from 'rxjs';
 
 const MENU_ITEMS_FIXOS: MenuItem[] = [
   {
@@ -19,17 +21,18 @@ const MENU_ITEMS_FIXOS: MenuItem[] = [
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   public items: MenuItem[] = MENU_ITEMS_FIXOS;
+
+  public subscription: Subscription;
 
   constructor(
     private router: Router,
   ) {
-    this.router.events.subscribe((event: Event) => {
+    this.subscription = this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         if (event.urlAfterRedirects.startsWith('/home/artigo-edicao')) {
-          console.log('RECONFIGURANDO MENU');
           this.items = [
             ...MENU_ITEMS_FIXOS,
             {
@@ -44,6 +47,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }
