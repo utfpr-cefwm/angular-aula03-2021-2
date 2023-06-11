@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { ListaArtigosComponent } from './components/lista-artigos/lista-artigos.component';
 import { AppErrorHandler } from './app-error-handler';
+import { AuthModule } from './modules/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AppErrorHandler } from './app-error-handler';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    AuthModule,
     AppRoutingModule,
     MenubarModule,
     TabViewModule,

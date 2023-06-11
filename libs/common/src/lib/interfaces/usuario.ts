@@ -11,3 +11,11 @@ export interface IUsuario {
   administrador: boolean;
 
 }
+
+export interface IUsuarioLogado {
+
+  jwt: string;
+
+  usuario: Omit<IUsuario, 'senha'>;
+
+}

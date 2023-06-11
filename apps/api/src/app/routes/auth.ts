@@ -5,7 +5,7 @@ import {
   Router,
 } from "express";
 
-import { IUsuario } from "@cefwm-angular/common";
+import { IUsuario, IUsuarioLogado } from "@cefwm-angular/common";
 
 import { checkString, sanitizeUsuario } from "../util/sanitization";
 import { getCollection } from "../util/mongodb-util";
@@ -30,10 +30,11 @@ router.post('/login', async (req: Request, res: Response, next: NextFunction) =>
   ).findOne(body);
 
   if (usuario) {
-    res.json({
+    const usuarioLogado: IUsuarioLogado = {
       jwt: criarToken(usuario),
       usuario: sanitizeUsuario(usuario),
-    });
+    };
+    res.json(usuarioLogado);
   } else {
     res.status(401);
     next(new Error('Login ou senha errados'));
